@@ -13,25 +13,15 @@ const DataGrid: React.FC<DataGridProps> = ({ rowData, columnDefs, onDelete }) =>
     const [searchText, setSearchText] = useState('');
     const [filteredData, setFilteredData] = useState(rowData);
 
-
     const navigate = useNavigate();
 
-    useEffect(() => {
-        setFilteredData(rowData);
-    }, [rowData]);
+    useEffect(() => { setFilteredData(rowData); }, [rowData]);
 
-    const handleView = (row: any) => {
-        navigate(`/view/${row.id}`, { state: { data: row } });
-    };
+    const handleView = (row: any) => { navigate(`/view/${row.id}`, { state: { data: row } }); };
 
-    const handleEdit = (row: any) => {
-        console.log('Edit clicked for:', row);
-        // Or navigate to edit page
-    };
+    const handleEdit = (row: any) => { console.log('Edit clicked for:', row); };
 
-    const handleDeleteClick = (row: any) => {
-        onDelete(row.id);
-    };
+    const handleDeleteClick = (row: any) => { onDelete(row.id); };
 
 
     const actionColumn = {
