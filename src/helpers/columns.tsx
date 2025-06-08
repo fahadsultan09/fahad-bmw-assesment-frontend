@@ -1,5 +1,6 @@
+import { Button, Box } from '@mui/material';
 
-export const tableColumns = [
+export const tableColumns = (onView: any, onEdit: any, onDelete: any) => [
     {
         headerName: "#",
         valueGetter: (params: any) => params.node.rowIndex + 1,
@@ -31,9 +32,8 @@ export const tableColumns = [
         field: "Date",
         valueFormatter: (params: any) => params.value ? formatDate(params.value) : params.value,
         cellStyle: { textAlign: "left" }
-    },
-]
-
+    }
+];
 
 const formatDate = (dateParams: any) => {
     const date = new Date(dateParams);
@@ -41,4 +41,4 @@ const formatDate = (dateParams: any) => {
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
-}
+};
