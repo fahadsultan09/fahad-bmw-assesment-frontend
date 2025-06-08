@@ -21,7 +21,9 @@
     "ag-grid-react": "^33.0.4",
     "axios": "^1.7.9",
     "cra-template-typescript": "1.2.0",
-    "react-router-dom": "^7.1.2"
+    "react-router-dom": "^7.1.2",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
