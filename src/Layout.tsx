@@ -15,7 +15,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import CustomTable from './pages/CustomTable';
+import DataTable from './pages/DataTable';
 
 import HomeIcon from '@mui/icons-material/Home';
 import WorkIcon from '@mui/icons-material/Work';
@@ -74,7 +74,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
               sx={{ height: 50, width: 60, marginRight: 1 }}
             />
             <Typography variant="h6" noWrap component="div">
-              BMW
+              BMW Management Studio
             </Typography>
           </Box>
         </Toolbar>
@@ -115,7 +115,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        {children || <CustomTable />}
+        {children || <DataTable />}
       </Box>
     </Box>
   );
