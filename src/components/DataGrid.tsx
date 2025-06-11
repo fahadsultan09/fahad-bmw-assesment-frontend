@@ -24,10 +24,6 @@ const DataGrid: React.FC<Props> = ({ rowData, columnDefs, onDelete }) => {
 
     const gridRef = useRef<any>(null);
 
-    const [pageSize, setPageSize] = useState(10);
-    const [currentPage, setCurrentPage] = useState(0);
-    const [totalRows, setTotalRows] = useState(0);
-
     const handleSearch = async () => {
         try {
             const { data, error } = await searchCar(searchText, filterBy);
@@ -55,7 +51,7 @@ const DataGrid: React.FC<Props> = ({ rowData, columnDefs, onDelete }) => {
         onDelete(row);
     };
 
-    const columnDefs2: ColDef[] = [
+    const columns: ColDef[] = [
         {
             headerName: "#",
             valueGetter: (params: any) => params.node.rowIndex + 1,
@@ -86,7 +82,6 @@ const DataGrid: React.FC<Props> = ({ rowData, columnDefs, onDelete }) => {
             cellRenderer: (params: any) => (
                 <div>
                     <ActionIcon type="view" onClick={() => handleView(params.data)} />
-                    {/* <ActionIcon type="edit" onClick={() => console.log('Edit', params.data)} /> */}
                     <ActionIcon type="delete" onClick={() => handleDeleteClick(params.data)} />
                 </div>
             )
@@ -129,7 +124,7 @@ const DataGrid: React.FC<Props> = ({ rowData, columnDefs, onDelete }) => {
             <AgGridReact
                 ref={gridRef}
                 rowData={filteredData}
-                columnDefs={[...columnDefs2]}
+                columnDefs={[...columns]}
                 rowHeight={50}
                 pagination={true}
                 paginationPageSize={paginationPageSize}

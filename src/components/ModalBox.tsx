@@ -32,7 +32,7 @@ const ModalBox: React.FC<ModalBoxProps> = ({ modalOpen, selectedRow, handleClose
                         pb: 2,
                     }}
                 >
-                    Car Details
+                    Vehicle Overview
                 </Typography>
 
                 {selectedRow && (
