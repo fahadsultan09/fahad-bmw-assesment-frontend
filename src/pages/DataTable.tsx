@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { fetchCars, deleteCar } from '../services/apiConfiguration';
 import { tableColumns } from '../helpers/columns';
 import DataGrid from '../components/DataGrid';
@@ -13,11 +13,6 @@ const DataTable: React.FC = () => {
 
   const [data, setData] = useState<any[]>([]);
   const [columns, setColumns] = useState<any[]>([]);
-  const navigate = useNavigate();
-
-  const onView = (row: any) => navigate(`/view/${row.id}`, { state: { data: row } });
-  
-  const onEdit = (row: any) => console.log("Edit", row); 
 
   const onDelete = async (row: any) => {
     try {
@@ -31,7 +26,7 @@ const DataTable: React.FC = () => {
       const { data, error } = await fetchCars();
       if (data) {
         setData(data);
-        setColumns(tableColumns(onView, onEdit, onDelete));
+        setColumns(tableColumns());
       } else {
 
       }

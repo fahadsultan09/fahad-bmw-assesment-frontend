@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 
 const FilterBar: React.FC<FilterBarProps> = ({ value, onChange }) => {
     return (

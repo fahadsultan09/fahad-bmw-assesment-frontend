@@ -1,5 +1,5 @@
 
-export const tableColumns = (onView: any, onEdit: any, onDelete: any) => [
+export const tableColumns = () => [
     {
         headerName: "#",
         valueGetter: (params: any) => params.node.rowIndex + 1,

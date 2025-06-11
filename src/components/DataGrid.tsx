@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { ColDef } from 'ag-grid-community';
 import { AgGridReact } from "ag-grid-react";
 import { Box, SelectChangeEvent } from '@mui/material';
@@ -63,6 +63,8 @@ const DataGrid: React.FC<Props> = ({ rowData, columnDefs, onDelete }) => {
         { headerName: "Model", field: "Model" },
         { headerName: "AccelSec", field: "AccelSec", width: 120 },
         { headerName: "TopSpeed (KmH)", field: "TopSpeed_KmH", width: 120 },
+        { headerName: "Range (Km)", field: "Range_Km", width: 120 },
+        { headerName: "Efficiency (WhKm)", field: "Efficiency_WhKm", width: 120 },
         { headerName: "Seats", field: "Seats", width: 120 },
         {
             headerName: "Price",
