@@ -1,7 +1,6 @@
 import Layout from "./Layout";
 import { BrowserRouter } from 'react-router-dom';
-// import 'ag-grid-community/styles/ag-grid.css';
-// import 'ag-grid-community/styles/ag-theme-alpine.css';
+import "./App.css"
 
 
 const App = () => {

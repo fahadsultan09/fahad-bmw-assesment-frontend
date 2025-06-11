@@ -32,7 +32,21 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.even-row {
+  background-color: #ffffff !important;
+}
+
+.odd-row {
+  background-color: #f9f9f9 !important;
+}
+
+.ag-theme-alpine .ag-row-alt {
+  background-color: #f9f9f9;
+  /* light gray for alternate rows */
 }
