@@ -6,6 +6,9 @@ import { tableColumns } from '../helpers/columns';
 import DataGrid from '../components/DataGrid';
 import ViewPage from './ViewPage';
 import Loading from '../components/Loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -18,7 +21,25 @@ const DataTable: React.FC = () => {
     try {
       await deleteCar(row._id);
       setData((prev) => prev.filter((item) => item._id !== row._id));
-    } catch (err) { }
+      toast.success("Car deleted successfully", {
+        icon: <span>✅</span>,
+        style: {
+          backgroundColor: '#1E3A8A',  // formal blue
+          color: 'white',
+          fontWeight: '600',
+        },
+      });
+    } catch (err) {
+      toast.error("Failed to delete car",{
+        icon: <span>❌</span>,
+        style: {
+          backgroundColor: '#B91C1C',  // formal/dark red
+          color: 'white',
+          fontWeight: '600',
+        },
+      });
+
+    }
   };
 
   useEffect(() => {
@@ -40,7 +61,24 @@ const DataTable: React.FC = () => {
 
   return (
     <>
-
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        style={{
+          fontSize: '14px',
+          fontWeight: '600',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          borderRadius: '8px',
+        }}
+      />
       <Routes>
         <Route
           path="/"

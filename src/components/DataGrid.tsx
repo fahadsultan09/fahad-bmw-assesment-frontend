@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ColDef } from 'ag-grid-community';
 import { AgGridReact } from "ag-grid-react";
 import { Box, SelectChangeEvent } from '@mui/material';
@@ -23,6 +23,10 @@ const DataGrid: React.FC<Props> = ({ rowData, columnDefs, onDelete }) => {
     const [selectedRow, setSelectedRow] = useState<any>(null);
 
     const gridRef = useRef<any>(null);
+
+    useEffect(() => {
+        setFilteredData(rowData);
+    }, [rowData]);
 
     const handleSearch = async () => {
         try {
